@@ -1,0 +1,14 @@
+[Unit]
+Description=WhatsApp Manager
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/WhatsApp-Manager
+ExecStart=/home/pi/WhatsApp-Manager/.venv/bin/python /home/pi/WhatsApp-Manager/whatsapp_manager.py --config /home/pi/WhatsApp-Manager/config.ini
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
